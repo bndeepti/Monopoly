@@ -31,6 +31,7 @@ public class Monopoly {
     public void startGame(List<Player> players, Dice dice) {
         players.forEach(player -> {
             player.moveForward(player.roll(dice), board.length());
+            board.getCell(player.getCurrentPosition()).handleTransaction(player);
         });
     }
 }

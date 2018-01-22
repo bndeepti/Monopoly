@@ -3,7 +3,7 @@ package model;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -13,19 +13,22 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
+        player = new Player("name");
         dice = mock(Dice.class);
     }
 
     @Test
     public void testShouldSetInitialCurrentPosition() {
-        player = new Player("name");
-
         assertEquals(-1, player.getCurrentPosition());
     }
 
     @Test
+    public void testShouldSetInitialWorth() {
+        assertEquals(1000, player.getWorth());
+    }
+
+    @Test
     public void testShouldGiveNextRollValue() {
-        player = new Player("name");
         when(dice.roll()).thenReturn(3);
 
         assertEquals(3, player.roll(dice));
@@ -34,7 +37,6 @@ public class PlayerTest {
     @Test
     public void testMovePlayerToPosition() {
         int boardLength = 6;
-        player = new Player("player1");
 
         assertEquals(-1, player.getCurrentPosition());
 
@@ -46,7 +48,6 @@ public class PlayerTest {
     @Test
     public void testMovePlayerToPositionAfterRoundTrip() {
         int boardLength = 6;
-        player = new Player("player1");
 
         assertEquals(-1, player.getCurrentPosition());
 

@@ -1,12 +1,15 @@
 package model;
 
+import cell.Cell;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 public class MonopolyTest {
     Monopoly monopoly;
@@ -56,9 +59,12 @@ public class MonopolyTest {
         when(player.roll(dice)).thenReturn(4);
 
         when(board.length()).thenReturn(7);
+        Cell cell = mock(Cell.class);
+        when(board.getCell(1)).thenReturn(cell);
 
         monopoly.startGame(players, dice);
 
         verify(player, times(1)).moveForward(4, cellPositionsAndTypes.split(",").length);
+        verify(cell, times(1)).handleTransaction(player);
     }
 }
