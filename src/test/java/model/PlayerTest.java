@@ -1,5 +1,6 @@
 package model;
 
+import cell.HotelCell;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -58,6 +59,26 @@ public class PlayerTest {
         player.moveForward(4, boardLength);
 
         assertEquals(0, player.getCurrentPosition());
+    }
+
+    @Test
+    public void testShouldAddHotelToListOfOwnedHotels() {
+        HotelCell hotelCell = mock(HotelCell.class);
+
+        assertEquals(0, player.getOwnedHotelCells().size());
+
+        player.buyHotel(hotelCell);
+
+        assertEquals(1, player.getOwnedHotelCells().size());
+    }
+
+    @Test
+    public void testShouldReturnTotalAsseetValue() {
+        HotelCell hotelCell = mock(HotelCell.class);
+        player.buyHotel(hotelCell);
+        player.setWorth(2000);
+
+        assertEquals(2200, player.getTotalAssetValue());
     }
 
 }

@@ -1,9 +1,16 @@
 package model;
 
+import cell.Cell;
+import cell.HotelCell;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     private final String name;
     private int currentPosition;
     private int worth;
+    private List<Cell> ownedHotelCells = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;
@@ -33,5 +40,17 @@ public class Player {
 
     public void setWorth(int worth) {
         this.worth = worth;
+    }
+
+    public List<Cell> getOwnedHotelCells() {
+        return ownedHotelCells;
+    }
+
+    public void buyHotel(HotelCell hotelCell) {
+        ownedHotelCells.add(hotelCell);
+    }
+
+    public int getTotalAssetValue() {
+        return worth + getOwnedHotelCells().size() * 200;
     }
 }
