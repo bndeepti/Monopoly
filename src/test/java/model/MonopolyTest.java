@@ -24,7 +24,7 @@ public class MonopolyTest {
     public void testShouldTakeInputsAndDelegateInitialization() {
         String cellPositionsAndTypes = "";
         String diceOutput = "";
-        String numberOfPlayers = "";
+        String numberOfPlayers = "2";
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
         verify(board, times(1)).init(cellPositionsAndTypes);
         verify(dice, times(1)).init(diceOutput);
