@@ -31,4 +31,8 @@ public class Board {
     public Cell getCell(int index) {
         return cells.get(index);
     }
+
+    public int length() {
+        return cells.size();
+    }
 }

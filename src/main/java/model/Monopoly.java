@@ -27,4 +27,10 @@ public class Monopoly {
     public Player getPlayer(int index) {
         return players.get(index);
     }
+
+    public void startGame(List<Player> players, Dice dice) {
+        players.forEach(player -> {
+            player.moveForward(player.roll(dice), board.length());
+        });
+    }
 }
