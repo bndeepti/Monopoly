@@ -14,8 +14,8 @@ public class Monopoly {
     }
 
     public void init(String numberOfPlayers, String cellPositionsAndTypes, String diceOutput) {
-        board.init("");
-        dice.init("");
+        board.init(cellPositionsAndTypes);
+        dice.init(diceOutput);
         initPlayers(Integer.valueOf(numberOfPlayers));
     }
 
@@ -28,10 +28,16 @@ public class Monopoly {
         return players.get(index);
     }
 
-    public void startGame(List<Player> players, Dice dice) {
-        players.forEach(player -> {
-            player.moveForward(player.roll(dice), board.length());
-            board.getCell(player.getCurrentPosition()).handleTransaction(player);
-        });
+    public void startGame(Dice dice) {
+        for(int i = 0; i < 10; i++) {
+            players.forEach(player -> {
+                player.moveForward(player.roll(dice), board.length());
+                board.getCell(player.getCurrentPosition()).handleTransaction(player);
+            });
+        }
+    }
+
+    public void endGame() {
+        players.forEach(player -> player.getTotalAssetValue());
     }
 }

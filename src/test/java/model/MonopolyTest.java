@@ -44,27 +44,4 @@ public class MonopolyTest {
         assertEquals("Player-1", monopoly.getPlayer(0).getName());
         assertEquals("Player-2", monopoly.getPlayer(1).getName());
     }
-
-    @Test
-    public void testShouldStartGame() {
-        String cellPositionsAndTypes = "E,J,T,H,E,H,T";
-        board.init(cellPositionsAndTypes);
-
-        List<Player> players = new ArrayList<>();
-        Player player = mock(Player.class);
-        players.add(player);
-        when(player.getCurrentPosition()).thenReturn(1);
-
-        Dice dice = mock(Dice.class);
-        when(player.roll(dice)).thenReturn(4);
-
-        when(board.length()).thenReturn(7);
-        Cell cell = mock(Cell.class);
-        when(board.getCell(1)).thenReturn(cell);
-
-        monopoly.startGame(players, dice);
-
-        verify(player, times(1)).moveForward(4, cellPositionsAndTypes.split(",").length);
-        verify(cell, times(1)).handleTransaction(player);
-    }
 }

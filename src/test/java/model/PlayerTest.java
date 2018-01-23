@@ -73,7 +73,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testShouldReturnTotalAsseetValue() {
+    public void testShouldReturnTotalAssetValue() {
         HotelCell hotelCell = mock(HotelCell.class);
         player.buyHotel(hotelCell);
         player.setWorth(2000);

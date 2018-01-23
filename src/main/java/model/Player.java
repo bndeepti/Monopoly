@@ -51,6 +51,7 @@ public class Player {
     }
 
     public int getTotalAssetValue() {
-        return worth + getOwnedHotelCells().size() * 200;
+        worth = worth + getOwnedHotelCells().size() * 200;
+        return worth;
     }
 }
