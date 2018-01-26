@@ -1,10 +1,8 @@
 package model;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class Monopoly {
     private MonopolyProperties monopolyProperties;
@@ -37,7 +35,7 @@ public class Monopoly {
         return players.get(index);
     }
 
-    public void startGame(Dice dice) {
+    public void startGame() {
         for(int i = 0; i < 10; i++) {
             players.forEach(player -> {
                 player.moveForward(player.roll(dice), board.length());

@@ -25,7 +25,7 @@ public class MonopolyTest {
 
         Monopoly monopoly = new Monopoly(board, dice, bank, monopolyProperties);
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
-        monopoly.startGame(dice);
+        monopoly.startGame();
         monopoly.endGame();
 
         assertEquals(1200, monopoly.getPlayer(0).getWorth());

@@ -77,9 +77,8 @@ public class PlayerTest {
     public void testShouldReturnTotalAssetValue() {
         HotelCell hotelCell = mock(HotelCell.class);
         player.buyHotel(hotelCell);
-        player.setWorth(2000);
 
-        assertEquals(2200, player.getTotalAssetValue());
+        assertEquals(1200, player.getTotalAssetValue());
     }
 
     @Test

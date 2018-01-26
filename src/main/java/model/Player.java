@@ -38,10 +38,6 @@ public class Player {
         return worth;
     }
 
-    public void setWorth(int worth) {
-        this.worth = worth;
-    }
-
     public List<Cell> getOwnedHotelCells() {
         return ownedHotelCells;
     }
@@ -51,8 +47,7 @@ public class Player {
     }
 
     public int getTotalAssetValue() {
-        worth = worth + getOwnedHotelCells().size() * 200;
-        return worth;
+        return  worth += getOwnedHotelCells().size() * 200;
     }
 
     public void updateWorth(int amount, TransactionType transactionType) {
