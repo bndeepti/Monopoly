@@ -2,7 +2,6 @@ package model;
 
 import cell.Cell;
 import cell.HotelCell;
-import org.omg.CORBA.TRANSACTION_MODE;
 
 import java.util.ArrayList;
 import java.util.List;
