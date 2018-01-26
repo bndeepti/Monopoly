@@ -8,15 +8,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BoardTest {
     Board board;
+    MonopolyProperties monopolyProperties;
 
     @Before
     public void setUp() throws Exception {
         String cellPositionsAndTypes = "E,J,T,H,E";
+        monopolyProperties = mock(MonopolyProperties.class);
         board = new Board();
-        board.init(cellPositionsAndTypes);
+        when(monopolyProperties.getProperty("jail.fine")).thenReturn("150");
+        when(monopolyProperties.getProperty("treasure.value")).thenReturn("200");
+        when(monopolyProperties.getProperty("hotel.cost")).thenReturn("200");
+        when(monopolyProperties.getProperty("hotel.rent")).thenReturn("50");
+
+        board.init(cellPositionsAndTypes, monopolyProperties);
+
     }
 
     @Test

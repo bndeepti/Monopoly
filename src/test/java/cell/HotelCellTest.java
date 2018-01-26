@@ -5,15 +5,20 @@ import model.Player;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class HotelCellTest {
     HotelCell hotelCell;
     Bank bank;
+    int initialWorth;
+
     @Before
     public void setUp() throws Exception {
-        hotelCell = new HotelCell();
+        int rent = 50;
+        int cost = 200;
+        hotelCell = new HotelCell(cost, rent);
         bank = new Bank();
+        initialWorth = 1000;
     }
 
     @Test
@@ -25,7 +30,7 @@ public class HotelCellTest {
 
     @Test
     public void testShouldHandleTransactionForPlayerBySellingAtACostIfHotelIsForSale() {
-        Player player = new Player("Player1");
+        Player player = new Player("Player1", initialWorth);
         hotelCell.setOwned(false);
         hotelCell.handleTransaction(player, bank);
 
@@ -37,8 +42,8 @@ public class HotelCellTest {
 
     @Test
     public void testShouldHandleTransactionForPlayerByTakingRentIfHotelIsOwned() {
-        Player owner = new Player("Owner");
-        Player player = new Player("Player1");
+        Player owner = new Player("Owner", initialWorth);
+        Player player = new Player("Player1", initialWorth);
 
         hotelCell.setOwner(owner);
         hotelCell.setOwned(true);
@@ -50,7 +55,7 @@ public class HotelCellTest {
 
     @Test
     public void testShouldHandleTransactionForOwnerByNotTakingRent() {
-        Player owner = new Player("Owner");
+        Player owner = new Player("Owner", initialWorth);
 
         hotelCell.setOwner(owner);
         hotelCell.setOwned(true);

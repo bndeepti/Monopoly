@@ -8,8 +8,8 @@ import static model.TransactionType.DEBIT;
 public class JailCell implements Cell {
     private final int fine;
 
-    public JailCell() {
-        this.fine = 150;
+    public JailCell(int fine) {
+        this.fine = fine;
     }
 
     @Override

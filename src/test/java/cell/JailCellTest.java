@@ -6,7 +6,7 @@ import model.TransactionType;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -15,7 +15,8 @@ public class JailCellTest {
     JailCell jailCell;
     @Before
     public void setUp() throws Exception {
-        jailCell = new JailCell();
+        int fine = 150;
+        jailCell = new JailCell(fine);
     }
 
     @Test
@@ -25,7 +26,8 @@ public class JailCellTest {
 
     @Test
     public void testShouldHandleTransactionForPlayerByTakingFine() {
-        Player player = new Player("Player1");
+        int initialWorth = 1000;
+        Player player = new Player("Player1", initialWorth);
         Bank bank = mock(Bank.class);
         jailCell.handleTransaction(player, bank);
 

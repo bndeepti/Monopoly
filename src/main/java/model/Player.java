@@ -12,10 +12,10 @@ public class Player {
     private int worth;
     private List<Cell> ownedHotelCells = new ArrayList<>();
 
-    public Player(String name) {
+    public Player(String name, int worth) {
         this.name = name;
         this.currentPosition = -1;
-        this.worth = 1000;
+        this.worth = worth;
     }
 
     public String getName() {

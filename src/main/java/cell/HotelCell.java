@@ -10,9 +10,9 @@ public class HotelCell implements Cell {
     private boolean owned;
     private Player owner;
 
-    public HotelCell() {
-        this.cost = 200;
-        this.rent = 50;
+    public HotelCell(int cost, int rent) {
+        this.cost = cost;
+        this.rent = rent;
     }
 
     @Override

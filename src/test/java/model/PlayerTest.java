@@ -14,7 +14,8 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
-        player = new Player("name");
+        int initialWorth = 1000;
+        player = new Player("name", initialWorth);
         dice = mock(Dice.class);
     }
 

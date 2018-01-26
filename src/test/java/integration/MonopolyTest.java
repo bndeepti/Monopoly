@@ -1,16 +1,17 @@
 package integration;
 
-import model.Bank;
-import model.Board;
-import model.Dice;
-import model.Monopoly;
+import model.*;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 
 public class MonopolyTest {
     @Test
-    public void testShouldStartGame() {
+    public void testShouldStartGame() throws IOException {
         String numberOfPlayers = "3";
         String cellPositionsAndTypes = "E,E,J,H,E,T,J,T,E,E,H,J,T,H,E,E,J,H,E,T,J,T,E,E,H,J,T,H,J,E,E,J,H,E,T,J,T,E,E,H,J,T,E,H,E";
         String diceOutput = "4,4,4,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12";
@@ -19,7 +20,10 @@ public class MonopolyTest {
         Dice dice = new Dice();
         Bank bank = new Bank();
 
-        Monopoly monopoly = new Monopoly(board, dice, bank);
+        InputStream inputStream = this.getClass().getResourceAsStream("/monopoly.properties");
+        MonopolyProperties monopolyProperties = new MonopolyProperties(inputStream, new Properties());
+
+        Monopoly monopoly = new Monopoly(board, dice, bank, monopolyProperties);
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
         monopoly.startGame(dice);
         monopoly.endGame();

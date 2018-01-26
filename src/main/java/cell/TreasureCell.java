@@ -8,8 +8,8 @@ import static model.TransactionType.CREDIT;
 public class TreasureCell implements Cell {
     private int value;
 
-    public TreasureCell() {
-        this.value = 200;
+    public TreasureCell(int value) {
+        this.value = value;
     }
 
     @Override

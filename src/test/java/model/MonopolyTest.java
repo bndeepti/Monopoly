@@ -1,42 +1,44 @@
 package model;
 
-import cell.Cell;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.when;
 
 public class MonopolyTest {
     Monopoly monopoly;
     Board board;
     Dice dice;
     Bank bank;
+    MonopolyProperties monopolyProperties;
 
     @Before
     public void setUp() {
         board = mock(Board.class);
         dice = mock(Dice.class);
         bank =  mock(Bank.class);
-        monopoly = new Monopoly(board, dice, bank);
+        monopolyProperties = mock(MonopolyProperties.class);
+
+        when(monopolyProperties.getProperty("player.worth")).thenReturn("1000");
+        monopoly = new Monopoly(board, dice, bank, monopolyProperties);
     }
 
     @Test
-    public void testShouldTakeInputsAndDelegateInitialization() {
+    public void testShouldTakeInputsAndDelegateInitialization() throws IOException {
         String cellPositionsAndTypes = "";
         String diceOutput = "";
         String numberOfPlayers = "2";
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
-        verify(board, times(1)).init(cellPositionsAndTypes);
+        verify(board, times(1)).init(cellPositionsAndTypes, monopolyProperties);
         verify(dice, times(1)).init(diceOutput);
     }
 
     @Test
-    public void testShouldInitPlayers() {
+    public void testShouldInitPlayers() throws IOException {
         String numberOfPlayers = "2";
         String diceOutput = "";
         String cellPositionAndTypes = "";

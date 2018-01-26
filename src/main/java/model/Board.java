@@ -9,19 +9,23 @@ import java.util.List;
 public class Board {
     private List<Cell> cells = new ArrayList<>();
 
-    public void init(String cellPositionsAndTypes) {
+    public void init(String cellPositionsAndTypes, MonopolyProperties monopolyProperties) {
         List<String> cellPositionsAndTypesList = Arrays.asList(cellPositionsAndTypes.split(","));
-        cellPositionsAndTypesList.forEach(cellPositionAndType -> cells.add(createCell(cellPositionAndType)));
+        cellPositionsAndTypesList.forEach(cellPositionAndType -> cells.add(createCell(cellPositionAndType, monopolyProperties)));
     }
 
-    private Cell createCell(String cellPositionAndType) {
+    private Cell createCell(String cellPositionAndType, MonopolyProperties monopolyProperties) {
         switch (cellPositionAndType) {
             case "J":
-                return new JailCell();
+                int fine = Integer.parseInt(monopolyProperties.getProperty("jail.fine"));
+                return new JailCell(fine);
             case "T":
-                return new TreasureCell();
+                int value = Integer.parseInt(monopolyProperties.getProperty("treasure.value"));
+                return new TreasureCell(value);
             case "H":
-                return new HotelCell();
+                int cost = Integer.parseInt(monopolyProperties.getProperty("hotel.cost"));
+                int rent = Integer.parseInt(monopolyProperties.getProperty("hotel.rent"));
+                return new HotelCell(cost, rent);
             case "E":
                 return new EmptyCell();
         }
