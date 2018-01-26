@@ -6,11 +6,13 @@ import java.util.List;
 public class Monopoly {
     private Board board;
     private Dice dice;
+    private Bank bank;
     private List<Player> players = new ArrayList<>();;
 
-    public Monopoly(Board board, Dice dice) {
+    public Monopoly(Board board, Dice dice, Bank bank) {
         this.board = board;
         this.dice = dice;
+        this.bank = bank;
     }
 
     public void init(String numberOfPlayers, String cellPositionsAndTypes, String diceOutput) {
@@ -32,7 +34,7 @@ public class Monopoly {
         for(int i = 0; i < 10; i++) {
             players.forEach(player -> {
                 player.moveForward(player.roll(dice), board.length());
-                board.getCell(player.getCurrentPosition()).handleTransaction(player);
+                board.getCell(player.getCurrentPosition()).handleTransaction(player, bank);
             });
         }
     }

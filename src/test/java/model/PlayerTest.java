@@ -81,4 +81,15 @@ public class PlayerTest {
         assertEquals(2200, player.getTotalAssetValue());
     }
 
+    @Test
+    public void testShouldUpdateWorth() {
+        player.updateWorth(100, TransactionType.DEBIT);
+
+        assertEquals(900, player.getWorth());
+
+        player.updateWorth(200, TransactionType.CREDIT);
+
+        assertEquals(1100, player.getWorth());
+    }
+
 }

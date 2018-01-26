@@ -1,5 +1,6 @@
 package integration;
 
+import model.Bank;
 import model.Board;
 import model.Dice;
 import model.Monopoly;
@@ -16,8 +17,9 @@ public class MonopolyTest {
 
         Board board = new Board();
         Dice dice = new Dice();
+        Bank bank = new Bank();
 
-        Monopoly monopoly = new Monopoly(board, dice);
+        Monopoly monopoly = new Monopoly(board, dice, bank);
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
         monopoly.startGame(dice);
         monopoly.endGame();

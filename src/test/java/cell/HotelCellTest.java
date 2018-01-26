@@ -1,5 +1,6 @@
 package cell;
 
+import model.Bank;
 import model.Player;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,9 +9,11 @@ import static org.junit.Assert.*;
 
 public class HotelCellTest {
     HotelCell hotelCell;
+    Bank bank;
     @Before
     public void setUp() throws Exception {
         hotelCell = new HotelCell();
+        bank = new Bank();
     }
 
     @Test
@@ -24,7 +27,7 @@ public class HotelCellTest {
     public void testShouldHandleTransactionForPlayerBySellingAtACostIfHotelIsForSale() {
         Player player = new Player("Player1");
         hotelCell.setOwned(false);
-        hotelCell.handleTransaction(player);
+        hotelCell.handleTransaction(player, bank);
 
         assertEquals(800, player.getWorth());
         assertEquals(1, player.getOwnedHotelCells().size());
@@ -39,7 +42,7 @@ public class HotelCellTest {
 
         hotelCell.setOwner(owner);
         hotelCell.setOwned(true);
-        hotelCell.handleTransaction(player);
+        hotelCell.handleTransaction(player, bank);
 
         assertEquals(950, player.getWorth());
         assertEquals(1050, owner.getWorth());
@@ -51,7 +54,7 @@ public class HotelCellTest {
 
         hotelCell.setOwner(owner);
         hotelCell.setOwned(true);
-        hotelCell.handleTransaction(owner);
+        hotelCell.handleTransaction(owner, bank);
 
         assertEquals(1000, owner.getWorth());
     }

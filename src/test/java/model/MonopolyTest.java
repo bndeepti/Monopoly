@@ -15,12 +15,14 @@ public class MonopolyTest {
     Monopoly monopoly;
     Board board;
     Dice dice;
+    Bank bank;
 
     @Before
     public void setUp() {
         board = mock(Board.class);
         dice = mock(Dice.class);
-        monopoly = new Monopoly(board, dice);
+        bank =  mock(Bank.class);
+        monopoly = new Monopoly(board, dice, bank);
     }
 
     @Test

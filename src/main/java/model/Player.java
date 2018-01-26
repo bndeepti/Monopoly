@@ -2,6 +2,7 @@ package model;
 
 import cell.Cell;
 import cell.HotelCell;
+import org.omg.CORBA.TRANSACTION_MODE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +54,13 @@ public class Player {
     public int getTotalAssetValue() {
         worth = worth + getOwnedHotelCells().size() * 200;
         return worth;
+    }
+
+    public void updateWorth(int amount, TransactionType transactionType) {
+        if (transactionType == TransactionType.DEBIT) {
+            worth -= amount;
+        } else if (transactionType == TransactionType.CREDIT) {
+            worth += amount;
+        }
     }
 }

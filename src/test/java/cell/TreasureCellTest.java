@@ -1,10 +1,14 @@
 package cell;
 
+import model.Bank;
 import model.Player;
+import model.TransactionType;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TreasureCellTest {
     TreasureCell treasureCell;
@@ -21,10 +25,11 @@ public class TreasureCellTest {
     @Test
     public void testShouldHandleTransactionForPlayerByGivingTreasureValue() {
         Player player = new Player("Player1");
+        Bank bank = mock(Bank.class);
 
-        treasureCell.handleTransaction(player);
+        treasureCell.handleTransaction(player, bank);
 
-        assertEquals(1200, player.getWorth());
+        verify(bank).transact(player, 200, TransactionType.CREDIT);
     }
 
 }

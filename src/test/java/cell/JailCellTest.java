@@ -1,10 +1,14 @@
 package cell;
 
+import model.Bank;
 import model.Player;
+import model.TransactionType;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
 public class JailCellTest {
@@ -22,9 +26,10 @@ public class JailCellTest {
     @Test
     public void testShouldHandleTransactionForPlayerByTakingFine() {
         Player player = new Player("Player1");
-        jailCell.handleTransaction(player);
+        Bank bank = mock(Bank.class);
+        jailCell.handleTransaction(player, bank);
 
-        assertEquals(850, player.getWorth());
+        verify(bank).transact(player, 150, TransactionType.DEBIT);
     }
 
 }

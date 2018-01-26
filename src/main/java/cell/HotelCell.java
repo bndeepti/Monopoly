@@ -1,6 +1,8 @@
 package cell;
 
+import model.Bank;
 import model.Player;
+import model.TransactionType;
 
 public class HotelCell implements Cell {
     private int cost;
@@ -14,15 +16,15 @@ public class HotelCell implements Cell {
     }
 
     @Override
-    public void handleTransaction(Player player) {
+    public void handleTransaction(Player player, Bank bank) {
         if (!owned) {
-            player.setWorth(player.getWorth() - cost);
+            player.updateWorth(cost, TransactionType.DEBIT);
             player.buyHotel(this);
             this.owned = true;
             this.owner = player;
         } else {
-            player.setWorth(player.getWorth() - rent);
-            owner.setWorth(owner.getWorth() + rent);
+            player.updateWorth(rent, TransactionType.DEBIT);
+            owner.updateWorth(rent, TransactionType.CREDIT);
         }
     }
 
