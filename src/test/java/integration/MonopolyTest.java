@@ -23,6 +23,8 @@ public class MonopolyTest {
         InputStream inputStream = this.getClass().getResourceAsStream("/monopoly.properties");
         MonopolyProperties monopolyProperties = new MonopolyProperties(inputStream, new Properties());
 
+        inputStream.close();
+
         Monopoly monopoly = new Monopoly(board, dice, bank, monopolyProperties);
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
         monopoly.startGame();
