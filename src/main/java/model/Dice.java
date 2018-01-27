@@ -19,4 +19,8 @@ public class Dice {
     public int roll() {
         return getRollValue(rollNumber++ % rollValues.size());
     }
+
+    public int totalRolls() {
+        return rollValues.size();
+    }
 }

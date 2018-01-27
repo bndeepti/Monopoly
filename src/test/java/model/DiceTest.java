@@ -34,4 +34,13 @@ public class DiceTest {
         assertEquals(6, dice.roll());
     }
 
+    @Test
+    public void testShouldReturnTotalRolls() {
+        String diceOutput = "4,5,6";
+
+        dice.init(diceOutput);
+
+        assertEquals(3, dice.totalRolls());
+    }
+
 }

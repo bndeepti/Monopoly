@@ -36,7 +36,7 @@ public class Monopoly {
     }
 
     public void startGame() {
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < dice.totalRolls()/players.size(); i++) {
             players.forEach(player -> {
                 player.moveForward(player.roll(dice), board.length());
                 board.getCell(player.getCurrentPosition()).handleTransaction(player, bank);
