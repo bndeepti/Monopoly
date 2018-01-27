@@ -25,6 +25,8 @@ public class MonopolyTest {
 
         inputStream.close();
 
+        new MonopolyLogger();
+
         Monopoly monopoly = new Monopoly(board, dice, bank, monopolyProperties);
         monopoly.init(numberOfPlayers, cellPositionsAndTypes, diceOutput);
         monopoly.startGame();
