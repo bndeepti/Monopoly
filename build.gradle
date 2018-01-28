@@ -29,4 +29,5 @@ jar {
     manifest {
         attributes 'Main-Class': 'model.Main'
     }
+    archiveName 'monopoly-'+version+'.jar'
 }
