@@ -24,3 +24,9 @@ test {
         logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
     }
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'model.Main'
+    }
+}
