@@ -36,7 +36,7 @@ public class HotelCellTest {
         Player owner = new Player("Owner", initialWorth);
         Player player = new Player("Player1", initialWorth);
 
-        hotelCell.setOwner(owner);
+        hotelCell.sell(owner);
         hotelCell.handleTransaction(player, bank);
 
         assertEquals(950, player.getWorth());
@@ -47,7 +47,7 @@ public class HotelCellTest {
     public void testShouldHandleTransactionForOwnerByNotTakingRent() {
         Player owner = new Player("Owner", initialWorth);
 
-        hotelCell.setOwner(owner);
+        hotelCell.sell(owner);
         hotelCell.handleTransaction(owner, bank);
 
         assertEquals(1000, owner.getWorth());

@@ -22,7 +22,7 @@ public class HotelCell implements Cell {
             message = String.format("%s bought Hotel at position %d for cost %d", player.getName(), (player.getCurrentPosition() + 1), cost);
             player.updateWorth(cost, TransactionType.DEBIT);
             player.buyHotel(this);
-            owner = player;
+            sell(player);
         } else {
             message = String.format("%s rented Hotel at position %d for rent %d", player.getName(), (player.getCurrentPosition() + 1), rent);
             player.updateWorth(rent, TransactionType.DEBIT);
@@ -35,7 +35,7 @@ public class HotelCell implements Cell {
         return owner;
     }
 
-    public void setOwner(Player owner) {
+    public void sell(Player owner) {
         this.owner = owner;
     }
 }
