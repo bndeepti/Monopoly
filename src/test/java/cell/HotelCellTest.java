@@ -31,12 +31,10 @@ public class HotelCellTest {
     @Test
     public void testShouldHandleTransactionForPlayerBySellingAtACostIfHotelIsForSale() {
         Player player = new Player("Player1", initialWorth);
-        hotelCell.setOwned(false);
         hotelCell.handleTransaction(player, bank);
 
         assertEquals(800, player.getWorth());
         assertEquals(1, player.getOwnedHotelCells().size());
-        assertEquals(true, hotelCell.isOwned());
         assertEquals(player, hotelCell.getOwner());
     }
 
@@ -46,7 +44,6 @@ public class HotelCellTest {
         Player player = new Player("Player1", initialWorth);
 
         hotelCell.setOwner(owner);
-        hotelCell.setOwned(true);
         hotelCell.handleTransaction(player, bank);
 
         assertEquals(950, player.getWorth());
@@ -58,7 +55,6 @@ public class HotelCellTest {
         Player owner = new Player("Owner", initialWorth);
 
         hotelCell.setOwner(owner);
-        hotelCell.setOwned(true);
         hotelCell.handleTransaction(owner, bank);
 
         assertEquals(1000, owner.getWorth());

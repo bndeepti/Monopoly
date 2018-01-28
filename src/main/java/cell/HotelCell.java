@@ -8,7 +8,6 @@ import model.TransactionType;
 public class HotelCell implements Cell {
     private int cost;
     private int rent;
-    private boolean owned;
     private Player owner;
 
     public HotelCell(int cost, int rent) {
@@ -19,12 +18,11 @@ public class HotelCell implements Cell {
     @Override
     public void handleTransaction(Player player, Bank bank) {
         String message;
-        if (!owned) {
+        if (owner == null) {
             message = String.format("%s bought Hotel at position %d for cost %d", player.getName(), (player.getCurrentPosition() + 1), cost);
             player.updateWorth(cost, TransactionType.DEBIT);
             player.buyHotel(this);
-            this.owned = true;
-            this.owner = player;
+            owner = player;
         } else {
             message = String.format("%s rented Hotel at position %d for rent %d", player.getName(), (player.getCurrentPosition() + 1), rent);
             player.updateWorth(rent, TransactionType.DEBIT);
@@ -39,14 +37,6 @@ public class HotelCell implements Cell {
 
     public int getRent() {
         return rent;
-    }
-
-    public void setOwned(boolean owned) {
-        this.owned = owned;
-    }
-
-    public boolean isOwned() {
-        return owned;
     }
 
     public Player getOwner() {
