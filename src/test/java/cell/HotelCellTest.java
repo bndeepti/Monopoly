@@ -22,13 +22,6 @@ public class HotelCellTest {
     }
 
     @Test
-    public void testShouldSetHotelCostAndRent() {
-        assertEquals(200, hotelCell.getCost());
-        assertEquals(50, hotelCell.getRent());
-    }
-
-
-    @Test
     public void testShouldHandleTransactionForPlayerBySellingAtACostIfHotelIsForSale() {
         Player player = new Player("Player1", initialWorth);
         hotelCell.handleTransaction(player, bank);

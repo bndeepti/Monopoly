@@ -20,11 +20,6 @@ public class JailCellTest {
     }
 
     @Test
-    public void testShouldSetJailFine() {
-        assertEquals(150, jailCell.getFine());
-    }
-
-    @Test
     public void testShouldHandleTransactionForPlayerByTakingFine() {
         int initialWorth = 1000;
         Player player = new Player("Player1", initialWorth);

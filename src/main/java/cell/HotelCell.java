@@ -31,14 +31,6 @@ public class HotelCell implements Cell {
         MonopolyLogger.LOGGER.info(message);
     }
 
-    public int getCost() {
-        return cost;
-    }
-
-    public int getRent() {
-        return rent;
-    }
-
     public Player getOwner() {
         return owner;
     }

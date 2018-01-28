@@ -20,8 +20,4 @@ public class TreasureCell implements Cell {
 
         bank.transact(player, value, CREDIT);
     }
-
-    public int getValue() {
-        return value;
-    }
 }

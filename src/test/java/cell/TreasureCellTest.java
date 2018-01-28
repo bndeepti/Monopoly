@@ -19,11 +19,6 @@ public class TreasureCellTest {
     }
 
     @Test
-    public void testShouldSetTreasureValue() {
-        assertEquals(200, treasureCell.getValue());
-    }
-
-    @Test
     public void testShouldHandleTransactionForPlayerByGivingTreasureValue() {
         int initialWorth = 1000;
         Player player = new Player("Player1", initialWorth);

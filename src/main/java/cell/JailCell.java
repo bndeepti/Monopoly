@@ -20,8 +20,4 @@ public class JailCell implements Cell {
 
         bank.transact(player, fine, DEBIT);
     }
-
-    public int getFine() {
-        return fine;
-    }
 }
