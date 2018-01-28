@@ -50,4 +50,10 @@ public class Monopoly {
             player.updateWorth(player.getTotalHotels() * hotelCost, TransactionType.CREDIT);
         });
     }
+
+    public void printResult() {
+        players.forEach(player ->  {
+            System.out.println(player.getName() + " has a worth of " + player.getWorth());
+        });
+    }
 }
