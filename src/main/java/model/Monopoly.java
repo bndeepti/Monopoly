@@ -45,6 +45,9 @@ public class Monopoly {
     }
 
     public void endGame() {
-        players.forEach(player -> player.getTotalAssetValue());
+        int hotelCost = Integer.parseInt(monopolyProperties.getProperty("hotel.cost"));
+        players.forEach(player ->  {
+            player.updateWorth(player.getTotalHotels() * hotelCost, TransactionType.CREDIT);
+        });
     }
 }

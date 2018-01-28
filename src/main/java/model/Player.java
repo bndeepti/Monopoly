@@ -46,8 +46,8 @@ public class Player {
         ownedHotelCells.add(hotelCell);
     }
 
-    public int getTotalAssetValue() {
-        return  worth += getOwnedHotelCells().size() * 200;
+    public int getTotalHotels() {
+        return  getOwnedHotelCells().size();
     }
 
     public void updateWorth(int amount, TransactionType transactionType) {
