@@ -1,4 +1,10 @@
-package model;
+package monopoly;
+
+import model.Board;
+import model.Dice;
+import model.Player;
+import transaction.Bank;
+import transaction.TransactionType;
 
 import java.io.IOException;
 import java.util.ArrayList;

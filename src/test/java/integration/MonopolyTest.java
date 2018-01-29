@@ -1,8 +1,12 @@
 package integration;
 
 import cell.CellFactory;
+import logging.MonopolyLogger;
 import model.*;
+import monopoly.Monopoly;
+import monopoly.MonopolyProperties;
 import org.junit.Test;
+import transaction.Bank;
 
 import java.io.IOException;
 import java.io.InputStream;

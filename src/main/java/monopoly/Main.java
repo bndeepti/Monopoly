@@ -1,6 +1,10 @@
-package model;
+package monopoly;
 
 import cell.CellFactory;
+import logging.MonopolyLogger;
+import model.Board;
+import model.Dice;
+import transaction.Bank;
 
 import java.io.IOException;
 import java.io.InputStream;

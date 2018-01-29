@@ -1,7 +1,7 @@
 package cell;
 
-import model.Bank;
-import model.MonopolyLogger;
+import transaction.Bank;
+import logging.MonopolyLogger;
 import model.Player;
 
 public class EmptyCell implements Cell {

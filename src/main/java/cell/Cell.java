@@ -1,6 +1,6 @@
 package cell;
 
-import model.Bank;
+import transaction.Bank;
 import model.Player;
 
 public interface Cell {

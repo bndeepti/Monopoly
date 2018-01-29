@@ -1,10 +1,10 @@
 package cell;
 
-import model.Bank;
-import model.MonopolyLogger;
+import transaction.Bank;
+import logging.MonopolyLogger;
 import model.Player;
 
-import static model.TransactionType.CREDIT;
+import static transaction.TransactionType.CREDIT;
 
 public class TreasureCell implements Cell {
     private int value;

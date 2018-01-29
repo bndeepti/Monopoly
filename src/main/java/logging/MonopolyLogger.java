@@ -1,4 +1,6 @@
-package model;
+package logging;
+
+import monopoly.Monopoly;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;

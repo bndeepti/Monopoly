@@ -1,6 +1,6 @@
 package cell;
 
-import model.MonopolyProperties;
+import monopoly.MonopolyProperties;
 
 public class CellFactory {
     public Cell createCell(String cellPositionAndType, MonopolyProperties monopolyProperties) {

@@ -1,10 +1,10 @@
 package cell;
 
-import model.Bank;
-import model.MonopolyLogger;
+import transaction.Bank;
+import logging.MonopolyLogger;
 import model.Player;
 
-import static model.TransactionType.DEBIT;
+import static transaction.TransactionType.DEBIT;
 
 public class JailCell implements Cell {
     private final int fine;

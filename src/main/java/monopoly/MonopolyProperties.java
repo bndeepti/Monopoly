@@ -1,4 +1,4 @@
-package model;
+package monopoly;
 
 import java.io.IOException;
 import java.io.InputStream;

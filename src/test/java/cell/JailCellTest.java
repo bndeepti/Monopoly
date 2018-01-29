@@ -1,8 +1,8 @@
 package cell;
 
-import model.Bank;
+import transaction.Bank;
 import model.Player;
-import model.TransactionType;
+import transaction.TransactionType;
 import org.junit.Before;
 import org.junit.Test;
 

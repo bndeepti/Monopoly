@@ -27,7 +27,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'model.Main'
+        attributes 'Main-Class': 'monopoly.Main'
     }
     archiveName 'monopoly-'+version+'.jar'
 }

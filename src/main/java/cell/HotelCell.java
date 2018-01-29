@@ -1,9 +1,8 @@
 package cell;
 
-import model.Bank;
-import model.MonopolyLogger;
+import transaction.Bank;
+import logging.MonopolyLogger;
 import model.Player;
-import model.TransactionType;
 
 public class HotelCell implements Cell {
     private int cost;

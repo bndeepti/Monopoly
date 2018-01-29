@@ -1,4 +1,6 @@
-package model;
+package transaction;
+
+import model.Player;
 
 public class Bank {
     private int balance;

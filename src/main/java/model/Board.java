@@ -2,6 +2,7 @@ package model;
 
 import cell.Cell;
 import cell.CellFactory;
+import monopoly.MonopolyProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;

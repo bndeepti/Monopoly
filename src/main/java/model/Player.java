@@ -2,6 +2,7 @@ package model;
 
 import cell.Cell;
 import cell.HotelCell;
+import transaction.TransactionType;
 
 import java.util.ArrayList;
 import java.util.List;

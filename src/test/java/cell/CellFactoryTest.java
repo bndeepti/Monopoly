@@ -1,6 +1,6 @@
 package cell;
 
-import model.MonopolyProperties;
+import monopoly.MonopolyProperties;
 import org.junit.Before;
 import org.junit.Test;
 

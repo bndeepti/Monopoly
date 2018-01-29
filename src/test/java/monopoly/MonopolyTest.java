@@ -1,7 +1,12 @@
-package model;
+package monopoly;
 
+import model.Board;
+import model.Dice;
+import monopoly.Monopoly;
+import monopoly.MonopolyProperties;
 import org.junit.Before;
 import org.junit.Test;
+import transaction.Bank;
 
 import java.io.IOException;
 
