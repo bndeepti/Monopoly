@@ -25,7 +25,7 @@ public class JailCellTest {
         Bank bank = mock(Bank.class);
         jailCell.handleTransaction(player, bank);
 
-        verify(bank).transact(player, 150, TransactionType.DEBIT);
+        verify(bank).transactWithBank(player, 150, TransactionType.DEBIT);
     }
 
 }

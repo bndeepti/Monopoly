@@ -20,13 +20,11 @@ public class HotelCell implements Cell {
         String message;
         if (owner == null) {
             message = String.format("%s bought Hotel at position %d for cost %d", player.getName(), (player.getCurrentPosition() + 1), cost);
-            player.updateWorth(cost, TransactionType.DEBIT);
-            player.buyHotel(this);
+            player.buyHotel(this, cost);
             sell(player);
         } else {
             message = String.format("%s rented Hotel at position %d for rent %d", player.getName(), (player.getCurrentPosition() + 1), rent);
-            player.updateWorth(rent, TransactionType.DEBIT);
-            owner.updateWorth(rent, TransactionType.CREDIT);
+            player.payRent(rent, owner);
         }
         MonopolyLogger.LOGGER.info(message);
     }

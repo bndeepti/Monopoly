@@ -18,6 +18,6 @@ public class TreasureCell implements Cell {
         String message = String.format("%s at Treasure position %d got value of %d", player.getName(), (player.getCurrentPosition() + 1), value);
         MonopolyLogger.LOGGER.info(message);
 
-        bank.transact(player, value, CREDIT);
+        bank.transactWithBank(player, value, CREDIT);
     }
 }

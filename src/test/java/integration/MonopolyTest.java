@@ -36,5 +36,6 @@ public class MonopolyTest {
         assertEquals(1200, monopoly.getPlayer(0).getWorth());
         assertEquals(1200, monopoly.getPlayer(1).getWorth());
         assertEquals(1050, monopoly.getPlayer(2).getWorth());
+        assertEquals(-450, bank.getBalance());
     }
 }

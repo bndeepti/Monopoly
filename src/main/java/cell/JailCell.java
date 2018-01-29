@@ -18,6 +18,6 @@ public class JailCell implements Cell {
         String message = String.format("%s at Jail position %d paid fine of %d", player.getName(), (player.getCurrentPosition() + 1), fine);
         MonopolyLogger.LOGGER.info(message);
 
-        bank.transact(player, fine, DEBIT);
+        bank.transactWithBank(player, fine, DEBIT);
     }
 }

@@ -68,15 +68,26 @@ public class PlayerTest {
 
         assertEquals(0, player.getOwnedHotelCells().size());
 
-        player.buyHotel(hotelCell);
+        player.buyHotel(hotelCell, 200);
 
         assertEquals(1, player.getOwnedHotelCells().size());
+        assertEquals(800, player.getWorth());
     }
 
     @Test
-    public void testShouldReturnTotalAssetValue() {
+    public void testShouldPayRentToOwner() {
+        Player owner = new Player("Owner", 1000);
+
+        player.payRent(50, owner);
+
+        assertEquals(950, player.getWorth());
+        assertEquals(1050, owner.getWorth());
+    }
+
+    @Test
+    public void testShouldReturnTotalAssets() {
         HotelCell hotelCell = mock(HotelCell.class);
-        player.buyHotel(hotelCell);
+        player.buyHotel(hotelCell, 200);
 
         assertEquals(1, player.getTotalHotels());
     }

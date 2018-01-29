@@ -2,6 +2,7 @@ package model;
 
 import cell.Cell;
 import cell.HotelCell;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,9 @@ public class Player {
         return ownedHotelCells;
     }
 
-    public void buyHotel(HotelCell hotelCell) {
+    public void buyHotel(HotelCell hotelCell, int cost) {
         ownedHotelCells.add(hotelCell);
+        updateWorth(cost, TransactionType.DEBIT);
     }
 
     public int getTotalHotels() {
@@ -56,5 +58,10 @@ public class Player {
         } else if (transactionType == TransactionType.CREDIT) {
             worth += amount;
         }
+    }
+
+    public void payRent(int rent, Player owner) {
+        updateWorth(rent, TransactionType.DEBIT);
+        owner.updateWorth(rent, TransactionType.CREDIT);
     }
 }

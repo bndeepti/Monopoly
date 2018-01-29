@@ -25,7 +25,7 @@ public class TreasureCellTest {
 
         treasureCell.handleTransaction(player, bank);
 
-        verify(bank).transact(player, 200, TransactionType.CREDIT);
+        verify(bank).transactWithBank(player, 200, TransactionType.CREDIT);
     }
 
 }

@@ -3,6 +3,7 @@ package model;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -33,6 +34,30 @@ public class BankTest {
         bank.transact(player, amount, transactionType);
 
         verify(player).updateWorth(amount, transactionType);
+    }
+
+    @Test
+    public void testShouldCreditBankBalance() throws Exception {
+        Player player = mock(Player.class);
+
+        int amount = 100;
+        TransactionType transactionType = TransactionType.DEBIT;
+        bank.transactWithBank(player, amount, transactionType);
+
+        verify(player).updateWorth(amount, transactionType);
+        assertEquals(100, bank.getBalance());
+    }
+
+    @Test
+    public void testShouldDebitBankBalance() throws Exception {
+        Player player = mock(Player.class);
+
+        int amount = 100;
+        TransactionType transactionType = TransactionType.CREDIT;
+        bank.transactWithBank(player, amount, transactionType);
+
+        verify(player).updateWorth(amount, transactionType);
+        assertEquals(-100, bank.getBalance());
     }
 
 }
