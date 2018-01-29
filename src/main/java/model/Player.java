@@ -2,7 +2,6 @@ package model;
 
 import cell.Cell;
 import cell.HotelCell;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
