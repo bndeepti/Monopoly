@@ -1,5 +1,7 @@
 package model;
 
+import cell.CellFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -31,7 +33,7 @@ public class Main {
         inputStream.close();
 
         new MonopolyLogger();
-        Board board = new Board();
+        Board board = new Board(new CellFactory());
         Dice dice = new Dice();
         Bank bank = new Bank();
 

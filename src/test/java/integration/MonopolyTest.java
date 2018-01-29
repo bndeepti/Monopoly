@@ -1,5 +1,6 @@
 package integration;
 
+import cell.CellFactory;
 import model.*;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class MonopolyTest {
         String cellPositionsAndTypes = "E,E,J,H,E,T,J,T,E,E,H,J,T,H,E,E,J,H,E,T,J,T,E,E,H,J,T,H,J,E,E,J,H,E,T,J,T,E,E,H,J,T,E,H,E";
         String diceOutput = "4,4,4,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12";
 
-        Board board = new Board();
+        Board board = new Board(new CellFactory());
         Dice dice = new Dice();
         Bank bank = new Bank();
 
